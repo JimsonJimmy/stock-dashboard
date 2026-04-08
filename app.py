@@ -13,8 +13,7 @@ period = st.sidebar.selectbox("Time Period", ["1mo", "3mo", "6mo", "1y"])
 period_map = {"1mo": "30", "3mo": "90", "6mo": "180", "1y": "365"}
 days = int(period_map[period])
 
-url = f"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={ticker}&outputsize=full&apikey={API_KEY}"
-
+url = f"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={ticker}&apikey={API_KEY}"
 response = requests.get(url)
 json_data = response.json()
 
