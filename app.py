@@ -28,9 +28,9 @@ if "Time Series (Daily)" in json_data:
     st.line_chart(df["close"])
 
     col1, col2, col3 = st.columns(3)
-    col1.metric("Current Price", f"${df['close'][-1]:.2f}")
-    col2.metric("Highest", f"${df['close'].max():.2f}")
-    col3.metric("Lowest", f"${df['close'].min():.2f}")
+col1.metric("Current Price", f"${df['close'].iloc[-1]:.2f}")
+col2.metric("Highest", f"${df['close'].max():.2f}")
+col3.metric("Lowest", f"${df['close'].min():.2f}")
 
     st.subheader("Daily Returns (%)")
     returns = df["close"].pct_change() * 100
