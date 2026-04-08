@@ -35,4 +35,9 @@ if "Time Series (Daily)" in json_data:
 
     st.subheader("Daily Returns (%)")
     returns = df["close"].pct_change() * 100
-    st.line_chart(ret
+    st.line_chart(returns)
+
+    if st.checkbox("Show raw data"):
+        st.dataframe(df[["close"]])
+else:
+    st.error("Could not fetch data. Check ticker symbol.")
